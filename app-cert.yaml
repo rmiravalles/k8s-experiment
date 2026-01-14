@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: the-app-tls
+spec:
+  secretName: the-app-tls
+  duration: 8760h # 1 year
+  renewBefore: 720h
+  commonName: the-app.localhost
+  dnsNames:
+    - the-app.localhost
+  issuerRef:
+    name: local-ca
+    kind: ClusterIssuer
